@@ -22,3 +22,20 @@ module.exports = function(app) {
     });
   });
 };
+
+app.get("/api/articles", function(req, res) {
+  db.Blog.findall({}).then(function(blogDB) {
+    res.json(blogDB);
+  });
+});
+
+
+
+app.post("/api/articles", function(req, res) {
+  db.Blog.create({
+    text: req.body.text,
+    complete: req.body.complete
+  }).then(function(blogDB){
+    res.json(blogDB);
+  });
+});
