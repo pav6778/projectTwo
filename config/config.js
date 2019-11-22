@@ -1,14 +1,14 @@
-{
+const configObject = {
     "development": {
         "username": "root",
-        "password": "swobodaio18",
+        "password": process.env.DBPASSWORD || null,
         "database": "blogDB",
         "host": "localhost",
         "dialect": "mysql"
     },
     "test": {
         "username": "root",
-        "password": "swobodaio18",
+        "password": null,
         "database": "testdb",
         "host": "localhost",
         "dialect": "mysql",
@@ -19,3 +19,5 @@
         "dialect": "mysql"
     }
 }
+
+module.exports = configObject;
