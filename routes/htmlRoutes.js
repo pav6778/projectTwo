@@ -1,6 +1,6 @@
 var db = require("../models");
 var bcrypt = require("bcryptjs")
-
+var passport = require('passport')
 
 
 module.exports = function(app) {
@@ -10,6 +10,8 @@ module.exports = function(app) {
     });
 
     app.get('/dashboard', (req, res) => res.render("dashboard"))
+
+    app.get('/login', (req, res) => res.render("login"))
 
     app.get('/register', function(req, res) {
 
@@ -25,7 +27,7 @@ module.exports = function(app) {
                 req.body.password = hash
             })
         })
-        let errors = [1,2,3,4,5,6];
+        let errors = [];
         
         if(!userName || !email || !password) {
             errors.push({msg: "Please fill in all fields"});
@@ -50,8 +52,6 @@ module.exports = function(app) {
             errors.push({
                 msg: "Email is already registered"
             })
-            console.log(errors)
-
             res.render('register', {
                 errors,
                 userName,
@@ -64,13 +64,22 @@ module.exports = function(app) {
                 email: req.body.email,
                 password: req.body.password,
             }).then(userdb => {
-                
-                res.json(userdb)
+                req.flash('success_msg', 'grats! you registered!')
+                res.redirect('/login')
             })
         }
     });
+
     }
-    })
+});
+  //Login Handle
+  app.post('/login', (req, res, next) => {
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/dashboard',
+        failureFlash: true
+    })(req, res, next);
+  })
     
     
     // Render 404 page for any unmatched routes

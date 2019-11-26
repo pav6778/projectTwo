@@ -3,7 +3,7 @@
             <div class="col s12 m5 login">
                 <h4 class="center">Log in</h4>
                 <br>
-                <form action="check.php" method="post" autocomplete="off">
+                <form action="/login" method="post" autocomplete="off">
                     <div class="row">
                         <div class="input-field">
                             <input 
@@ -59,11 +59,11 @@
                             <input 
                             type="text" 
                             id="name-picked" 
-                            name="namepicked" 
+                            name="userName" 
                             class="validate" 
-                            required="required" 
+
                             placeholder="Enter a username"
-                            value="<%= typeof name != 'undefined' ? name : ''%>"
+                            value="<%= typeof userName != 'undefined' ? userName : ''%>"
                             />
     
                             <label for="name-picked">
@@ -74,11 +74,11 @@
                             <input 
                             type="password" 
                             id="pass-picked" 
-                            name="passpicked" 
+                            name="password" 
                             class="validate" 
-                            required="required" 
+
                             placeholder="Password"
-                            value="<%= typeof name != 'undefined' ? name : ''%>"
+                            value="<%= typeof password != 'undefined' ? password : ''%>"
                             />
                             
                             <label for="pass-picked">
@@ -93,9 +93,9 @@
                                 id="email" 
                                 name="email" 
                                 class="validate" 
-                                required="required" 
+
                                 placeholder="Enter your email"
-                                value="<%= typeof name != 'undefined' ? name : ''%>"
+                                value="<%= typeof email != 'undefined' ? email : ''%>"
                                 />
                                 <label for="email">
                 <i class="material-icons">mail</i> 

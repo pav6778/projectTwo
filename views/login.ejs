@@ -1,0 +1,70 @@
+<div class="row">
+	<div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
+		<div class="col s12 m5 login">
+			<h4 class="center">Log in</h4>
+			<br>
+			<%- include ('partials/messages') %>
+			<form action="/login" method="post" autocomplete="off">
+				<div class="row">
+					<div class="input-field">
+						<input 
+						type="text" 
+						id="user" 
+						name="username" 
+						class="validate" 
+						required="required" 
+						placeholder="Username"
+						/>
+		<label for="user">
+			<i class="material-icons">person</i>                </label>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<input 
+						type="password" 
+						id="pass" 
+						name="password" 
+						class="validate" 
+						required="required" 
+						placeholder="Password"
+						/>
+						<label for="pass">
+		<i class="material-icons">lock</i>
+		</label>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="switch col s6">
+						<label>
+							<input type="checkbox">
+							<span class="lever"></span>
+							Remember Me
+						</label>
+					</div>
+					<div class="col s6">
+						<button type="submit" name="login" class="btn waves-effect waves-light blue right">Log in</button>
+					</div>
+				</div>
+			</form >
+		</div>
+		<!-- Signup form -->
+		<div class="col s12 m7 signup">
+		<div class="signupForm">
+			<h4 class="center">Sign up</h4>
+			<br>
+			
+			
+			<div class="row">
+				<button type="submit" name="btn-signup" class="btn blue right waves-effect waves-light">Sign Up</button>
+			</div>
+			</div>
+			<div class="signup-toggle center" >
+				<h4 class="center">Have No Account ? <a href="/register">Sign Up</a></h4>
+			</div>
+		</div>
+		<div class="col s12">
+			<br>
+		</div>
+	</div>
+</div>
