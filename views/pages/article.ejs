@@ -14,10 +14,10 @@
     </header>
 
 
-    <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
         <main class="mdl-layout__content">
             <div class="demo-back">
-                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="/" title="go back" role="button">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="index.html" title="go back" role="button">
                     <i class="material-icons" role="presentation">arrow_back</i>
                 </a>
             </div>
@@ -70,8 +70,8 @@
                                 <label for="comment" class="mdl-textfield__label">Join the discussion</label>
                             </div>
                             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                      <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
-                    </button>
+                          <i class="material-icons" role="presentation">check</i><span class="visuallyhidden">add comment</span>
+                        </button>
                         </form>
                         <div class="comment mdl-color-text--grey-700">
                             <header class="comment__header">
@@ -87,14 +87,14 @@
                             </div>
                             <nav class="comment__actions">
                                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
-                      </button>
+                            <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                          </button>
                                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
-                      </button>
+                            <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                          </button>
                                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                        <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
-                      </button>
+                            <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                          </button>
                             </nav>
                             <div class="comment__answers">
                                 <div class="comment">
@@ -110,14 +110,14 @@
                                     </div>
                                     <nav class="comment__actions">
                                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                            <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
-                          </button>
+                                <i class="material-icons" role="presentation">thumb_up</i><span class="visuallyhidden">like comment</span>
+                              </button>
                                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                            <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
-                          </button>
+                                <i class="material-icons" role="presentation">thumb_down</i><span class="visuallyhidden">dislike comment</span>
+                              </button>
                                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                            <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
-                          </button>
+                                <i class="material-icons" role="presentation">share</i><span class="visuallyhidden">share comment</span>
+                              </button>
                                     </nav>
                                 </div>
                             </div>
@@ -128,22 +128,28 @@
                 <nav class="demo-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
                     <a href="index.html" class="demo-nav__button">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                    <i class="material-icons">arrow_back</i>
-                  </button> Newer
+                        <i class="material-icons">arrow_back</i>
+                      </button> Newer
                     </a>
                     <div class="section-spacer"></div>
                     <a href="index.html" class="demo-nav__button">
-                  Older
-                  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                    <i class="material-icons">arrow_forward</i>
-                  </button>
-                </a>
+                      Older
+                      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                        <i class="material-icons">arrow_forward</i>
+                      </button>
+                    </a>
                 </nav>
             </div>
-            <!-- add footer -->
+            <!-- footer here -->
+            <footer class="mdl-mini-footer">
+                <% include ../partials/footer %>
+
+            </footer>
         </main>
         <div class="mdl-layout__obfuscator"></div>
     </div>
+
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </body>
 

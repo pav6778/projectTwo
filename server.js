@@ -24,7 +24,7 @@ app.get('/about', function(req, res) {
 });
 
 // about page 
-app.get('/article/', function(req, res) {
+app.get('/article', function(req, res) {
     res.render('pages/article');
 });
 
