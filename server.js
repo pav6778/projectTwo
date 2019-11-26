@@ -10,26 +10,10 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
-
 app.set('view engine', 'ejs');
 
-// index page 
-app.get('/', function(req, res) {
-    res.render('pages/index');
-});
-
-// about page 
-app.get('/write', function(req, res) {
-    res.render('pages/write');
-});
-
-// about page 
-app.get('/article', function(req, res) {
-    res.render('pages/article');
-});
-
-
 // Routes
+require("./routes/htmlRoutes")(app);
 require("./routes/apiRoutes")(app);
 
 var syncOptions = { force: false };
