@@ -326,8 +326,7 @@ body .demo-blog {
 }
 
 .demo-blog--blogpost .demo-blog__posts>.mdl-card .mdl-card__media {
-    background-image: url('images/road_big.jpg');
-    height: 280px;
+    height: 120px;
 }
 
 .demo-blog--blogpost .comments {

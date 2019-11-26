@@ -19,8 +19,8 @@ app.get('/', function(req, res) {
 });
 
 // about page 
-app.get('/about', function(req, res) {
-    res.render('pages/about');
+app.get('/write', function(req, res) {
+    res.render('pages/write');
 });
 
 // about page 
