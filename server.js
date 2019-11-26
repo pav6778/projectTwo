@@ -10,11 +10,11 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
-
+app.set('view engine', 'ejs');
 
 // Routes
-require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes")(app);
 
 var syncOptions = { force: false };
 
