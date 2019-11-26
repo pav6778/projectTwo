@@ -1,13 +1,33 @@
+const bcrypt = require("bcryptjs");
+
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
       userName: { 
         type: DataTypes.STRING,
-        required: true
+        notNull: true,       
       },
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      logged_in: DataTypes.BOOLEAN,
-      logged_in_hash: DataTypes.STRING
+      email: {
+        type: DataTypes.STRING,
+        isEmail: true, 
+        notNull: true,      
+      },
+      password: {
+       type: DataTypes.STRING,
+       notNull: true,       
+       min: 8
+      },
+      
+    }, {
+      freezeTableName: true,
+        instanceMethods: {
+            generateHash(password) {
+                return bcrypt.hash(password, bcrypt.genSaltSync(8));
+            },
+            validPassword(password) {
+                return bcrypt.compare(password, this.password);
+            }
+        }
+
     });
     return User;
   };

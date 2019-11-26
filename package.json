@@ -5,19 +5,27 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "nodemon server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
   },
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "dotenv": "^8.0.0",
+    "ejs": "^3.0.1",
     "express": "^4.17.0",
-    "express-handlebars": "^3.1.0",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
     "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {
+    "nodemon": "^2.0.1",	
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cross-env": "^5.2.0",

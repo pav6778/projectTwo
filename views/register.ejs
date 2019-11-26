@@ -1,0 +1,117 @@
+<div class="row">
+        <div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
+            <div class="col s12 m5 login">
+                <h4 class="center">Log in</h4>
+                <br>
+                <form action="check.php" method="post" autocomplete="off">
+                    <div class="row">
+                        <div class="input-field">
+                            <input 
+                            type="text" 
+                            id="user" 
+                            name="username" 
+                            class="validate" 
+                            required="required" 
+                            placeholder="Username"
+                            />
+            <label for="user">
+                <i class="material-icons">person</i>                </label>
+                        </div>	
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <input 
+                            type="password" 
+                            id="pass" 
+                            name="password" 
+                            class="validate" 
+                            required="required" 
+                            placeholder="Password"
+                            />
+                            <label for="pass">
+            <i class="material-icons">lock</i>
+            </label>
+                        </div>	
+                    </div>
+                    <div class="row">
+                        <div class="switch col s6">
+                            <label>
+                                <input type="checkbox">
+                                <span class="lever"></span>
+                                Remember Me
+                            </label>
+                        </div>
+                        <div class="col s6">
+                            <button type="submit" name="login" class="btn waves-effect waves-light blue right">Log in</button>
+                        </div>
+                    </div>
+                </form >
+            </div>
+            <!-- Signup form -->
+            <div class="col s12 m7 signup">
+            <div class="signupForm" style="display: block;"">
+                <h4 class="center">Sign up</h4>
+                <br>
+                <%- include ('partials/messages') %>
+                <form action="/register" name="signup" method="post" autocomplete="off">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input 
+                            type="text" 
+                            id="name-picked" 
+                            name="namepicked" 
+                            class="validate" 
+                            required="required" 
+                            placeholder="Enter a username"
+                            value="<%= typeof name != 'undefined' ? name : ''%>"
+                            />
+    
+                            <label for="name-picked">
+                    <i class="material-icons">person_add</i>       
+            </label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input 
+                            type="password" 
+                            id="pass-picked" 
+                            name="passpicked" 
+                            class="validate" 
+                            required="required" 
+                            placeholder="Password"
+                            value="<%= typeof name != 'undefined' ? name : ''%>"
+                            />
+                            
+                            <label for="pass-picked">
+                <i class="material-icons">lock</i>                    </label>
+                        </div>	
+                    </div>
+                    <div class="row">
+                        <div class="input-field email">
+                            <div class="col s12">
+                                <input 
+                                type="text" 
+                                id="email" 
+                                name="email" 
+                                class="validate" 
+                                required="required" 
+                                placeholder="Enter your email"
+                                value="<%= typeof name != 'undefined' ? name : ''%>"
+                                />
+                                <label for="email">
+                <i class="material-icons">mail</i> 
+                </label>
+                            </div>
+                        </div>	
+                    </div>
+                    <div class="row">
+                        <button type="submit" name="btn-signup" class="btn blue right waves-effect waves-light">Sign Up</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <div class="col s12">
+                <br>
+            </div>
+        </div>
+    </div>
+    
