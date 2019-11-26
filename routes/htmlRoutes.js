@@ -2,11 +2,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-        res.send("404");
-    });
-
     // index page 
     app.get('/', function(req, res) {
         res.render('pages/index');
@@ -20,6 +15,11 @@ module.exports = function(app) {
     // about page 
     app.get('/article', function(req, res) {
         res.render('pages/article');
+    });
+
+    // Render 404 page for any unmatched routes
+    app.get("*", function(req, res) {
+        res.send("404");
     });
 
 };
