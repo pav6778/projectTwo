@@ -3,9 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
 
     // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-        res.send("404");
-    });
+    
 
     // index page 
     app.get('/', function(req, res) {
@@ -22,4 +20,7 @@ module.exports = function(app) {
         res.render('pages/article');
     });
 
+    app.get("*", function(req, res) {
+        res.send("404");
+    });
 };

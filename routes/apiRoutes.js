@@ -32,6 +32,10 @@ module.exports = function(app) {
 
 
     app.post("/api/articles", function(req, res) {
+
+console.log("gotloaded");
+
+
         db.Articles.create({
             title: req.body.title,
             body: req.body.body
