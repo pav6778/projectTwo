@@ -1,29 +1,31 @@
 <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
 
-
     <div class="mdl-card__media mdl-color-text--grey-50">
 
-        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 150px;right: 28px;">
+        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 130px;right: 28px;">
                 <i class="material-icons mdl-color-text--white" role="presentation">edit</i>
                 <span class="visuallyhidden">edit</span>
               </button>
-        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 150px;right: 100px;">
+        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 130px;right: 100px;">
                     <i class="material-icons mdl-color-text--white" role="presentation">delete</i>
                     <span class="visuallyhidden">delete</span>
                   </button>
 
-        <h3><a href="/article">On the road again </a>
+        <h3>
+            <a href="/article/<%=  articles.id  %>">
+                <%=  articles.title  %>
+            </a>
 
         </h3>
 
 
     </div>
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+        <%=  articles.body  %>
     </div>
     <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
         <div>
-            <strong>created at: <span>12/05/1999 11:59am</span></strong>
+            <strong>created at: <span> <%=  articles.date  %></span></strong>
         </div>
 
 

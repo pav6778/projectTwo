@@ -42,7 +42,7 @@
                   <span class="visuallyhidden">person</span>
                 </button>
                     <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-                        <img src="images/logo.png"> +1,337
+                        <img src="/images/logo.png"> +1,337
                     </div>
                     <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                         <div>
@@ -63,15 +63,10 @@
 
                 <!-- Add Card Partial -->
 
+                <% articles.forEach(function(articles){ %>
+                    <%- include('../partials/article', {articles: articles}) %>
 
-                <% include ../partials/article %>
-
-                    <% include ../partials/article %>
-
-                        <% include ../partials/article %>
-
-                            <% include ../partials/article %>
-
+                        <% }); %>
 
 
             </div>
