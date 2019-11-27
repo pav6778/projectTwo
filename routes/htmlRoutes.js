@@ -17,6 +17,11 @@ module.exports = function(app) {
         res.render('pages/article');
     });
 
+    // about page 
+    app.get('/featured', function(req, res) {
+        res.render('pages/featured');
+    });
+
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.send("404");
