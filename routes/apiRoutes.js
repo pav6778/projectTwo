@@ -31,12 +31,18 @@ module.exports = function (app) {
 };
 
 // Add article to database
-
 app.get("/api/articles/:user", function (req, res) {
     db.Articles.findall({}).then(function (articleDB) {
         res.json(articleDB);
     });
 });
+
+app.post("/api/comments", function (req, res) {
+    db.Articles.findall({}).then(function (articleDB) {
+        res.json(articleDB);
+    });
+});
+
 
 // author: DataTypes.STRING,
 // title: DataTypes.STRING,
