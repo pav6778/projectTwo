@@ -28,36 +28,44 @@ module.exports = function (app) {
             res.json(dbExample);
         });
     });
+
+
+    // Add article to database
+    app.get("/api/articles/:user", function (req, res) {
+        db.Articles.findall({}).then(function (articleDB) {
+            res.json(articleDB);
+        });
+    });
+
+    // Add likes to total 
+    app.post("/api/comments", function (req, res) {
+        db.Articles.findall({}).then(function (articleDB) {
+            res.json(articleDB);
+        });
+    });
+
+    // Add likes to total 
+    app.post("/api/likes/:id", function (req, res) {
+        db.Articles.findall({}).then(function (articleDB) {
+            res.json(articleDB);
+        });
+    });
+    // author: DataTypes.STRING,
+    // title: DataTypes.STRING,
+    // body: DataTypes.TEXT,
+    // likes: DataTypes.INTEGER,
+    // user_liked: DataTypes.STRING,
+    // comments: DataTypes.STRING
+
+
+    app.post("/api/articles", function (req, res) {
+        db.Articles.create({
+            title: req.body.title,
+            body: req.body.body,
+            author: req.body.author
+        }).then(function (articleDB) {
+            res.json(articleDB);
+        });
+    })
 };
 
-// Add article to database
-app.get("/api/articles/:user", function (req, res) {
-    db.Articles.findall({}).then(function (articleDB) {
-        res.json(articleDB);
-    });
-});
-
-app.post("/api/comments", function (req, res) {
-    db.Articles.findall({}).then(function (articleDB) {
-        res.json(articleDB);
-    });
-});
-
-
-// author: DataTypes.STRING,
-// title: DataTypes.STRING,
-// body: DataTypes.TEXT,
-// likes: DataTypes.INTEGER,
-// user_liked: DataTypes.STRING,
-// comments: DataTypes.STRING
-
-
-app.post("/api/articles", function (req, res) {
-    db.Articles.create({
-        title: req.body.title,
-        body: req.body.body
-    }).then(function (articleDB) {
-        res.json(articleDB);
-    });
-})
-};
