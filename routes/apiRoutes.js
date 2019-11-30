@@ -32,6 +32,29 @@ module.exports = function(app) {
 
 
     app.post("/api/articles", function(req, res) {
+
+
+
+        return User.create({
+
+                givenName: req.body.givenName,
+                surName: req.body.surName,
+                phoneNumber: req.body.phoneNumber,
+                email: req.body.email,
+                ownerId: req.user.customData._id,
+                notes: req.body.notes
+
+            }, {
+                returning: true
+            })
+            .then(function(user) {
+                res.send(user);
+            })
+            .catch(function(err) {
+                res.send(err);
+            });;
+
+
         db.Articles.create({
             title: req.body.title,
             body: req.body.body
