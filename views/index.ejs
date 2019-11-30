@@ -3,13 +3,13 @@
 		<div class="col s12 m5 login">
 			<h4 class="center">Log in</h4>
 			<br>
-			<form action="/login" method="post" autocomplete="off">
+			<%- include ('partials/messages') %>
+			<form action="/users/login" method="post" autocomplete="off">
 				<div class="row">
 					<div class="input-field">
 						<input 
 						type="text" 
-						id="user" 
-						name="username" 
+						name="email" 
 						class="validate" 
 						required="required" 
 						placeholder="Username"
@@ -22,7 +22,6 @@
 					<div class="input-field">
 						<input 
 						type="password" 
-						id="pass" 
 						name="password" 
 						class="validate" 
 						required="required" 
@@ -48,20 +47,7 @@
 			</form >
 		</div>
 		<!-- Signup form -->
-		<div class="col s12 m7 signup">
-		<div class="signupForm">
-			<h4 class="center">Sign up</h4>
-			<br>
-			
-			
-			<div class="row">
-				<button type="submit" name="btn-signup" class="btn blue right waves-effect waves-light">Sign Up</button>
-			</div>
-			</div>
-			<div class="signup-toggle center" >
-				<h4 class="center">Have No Account ? <a href="/register">Sign Up</a></h4>
-			</div>
-		</div>
+		
 		<div class="col s12">
 			<br>
 		</div>

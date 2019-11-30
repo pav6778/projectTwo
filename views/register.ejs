@@ -3,13 +3,14 @@
             <div class="col s12 m5 login">
                 <h4 class="center">Log in</h4>
                 <br>
-                <form action="/login" method="post" autocomplete="off">
+                
+                <form action="/users/login" method="post" autocomplete="off">
                     <div class="row">
                         <div class="input-field">
                             <input 
                             type="text" 
                             id="user" 
-                            name="username" 
+                            name="email" 
                             class="validate" 
                             required="required" 
                             placeholder="Username"
@@ -53,7 +54,7 @@
                 <h4 class="center">Sign up</h4>
                 <br>
                 <%- include ('partials/messages') %>
-                <form action="/register" name="signup" method="post" autocomplete="off">
+                <form action="/users/register" name="signup" method="post" autocomplete="off">
                     <div class="row">
                         <div class="input-field col s12 m6">
                             <input 

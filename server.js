@@ -1,17 +1,21 @@
 require("dotenv").config();
-var express = require("express");
-var expressLayouts = require('express-ejs-layouts')
-var flash = require('connect-flash')
-var session = require('express-session')
-var passport = require('passport')
+const express = require("express");
+const expressLayouts = require('express-ejs-layouts')
+const flash = require('connect-flash')
+const session = require('express-session')
+const passport = require('passport')
 
-var db = require("./models");
 
+
+
+
+const db = require("./models");
+
+const app = express();
 //Passport config 
 require('./config/passport')(passport)
-var app = express();
 
-var PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 // EJS
 app.use(expressLayouts);
@@ -19,15 +23,13 @@ app.set('view engine', 'ejs');
 
 // Middleware
 
-app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 //Express Session
 app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true,
+    secret: 'random-text',
 }));
+app.use(express.urlencoded({ extended: true }));
 //Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -43,8 +45,9 @@ app.use((req,res,next) => {
 })
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+
+app.use('/', require("./routes/htmlRoutes"));
+app.use('/users', require("./routes/authRoutes"));
 
 var syncOptions = { force: false };
 
