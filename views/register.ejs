@@ -1,26 +1,28 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
 <div class="row">
         <div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
             <div class="col s12 m5 login">
-                <h4 class="center">Log in</h4>
+                <h4 style="color: white; font-weight: bold;" class="center">Log in</h4>
                 <br>
                 
                 <form action="/users/login" method="post" autocomplete="off">
                     <div class="row">
-                        <div class="input-field">
+                        <div class="input-field" style="color: white;">
                             <input 
                             type="text" 
                             id="user" 
                             name="email" 
                             class="validate" 
                             required="required" 
-                            placeholder="Username"
+                            placeholder="Email"
                             />
             <label for="user">
                 <i class="material-icons">person</i>                </label>
                         </div>	
                     </div>
                     <div class="row">
-                        <div class="input-field">
+                        <div class="input-field"  style="color: white;">
                             <input 
                             type="password" 
                             id="pass" 
@@ -43,7 +45,7 @@
                             </label>
                         </div>
                         <div class="col s6">
-                            <button type="submit" name="login" class="btn waves-effect waves-light blue right">Log in</button>
+                            <button type="submit" name="login" class="btn waves-effect waves-light orange right">Log in</button>
                         </div>
                     </div>
                 </form >
@@ -51,19 +53,19 @@
             <!-- Signup form -->
             <div class="col s12 m7 signup">
             <div class="signupForm" style="display: block;"">
-                <h4 class="center">Sign up</h4>
+                <h4 style="color: white; font-weight: bold;" class="center">Sign up</h4>
                 <br>
                 <%- include ('partials/messages') %>
                 <form action="/users/register" name="signup" method="post" autocomplete="off">
                     <div class="row">
-                        <div class="input-field col s12 m6">
+                        <div class="input-field col s12 m6"  style="color: white;">
                             <input 
                             type="text" 
                             id="name-picked" 
                             name="userName" 
                             class="validate" 
 
-                            placeholder="Enter a username"
+                            placeholder="Enter your name"
                             value="<%= typeof userName != 'undefined' ? userName : ''%>"
                             />
     
@@ -71,7 +73,7 @@
                     <i class="material-icons">person_add</i>       
             </label>
                         </div>
-                        <div class="input-field col s12 m6">
+                        <div class="input-field col s12 m6"  style="color: white;">
                             <input 
                             type="password" 
                             id="pass-picked" 
@@ -87,7 +89,7 @@
                         </div>	
                     </div>
                     <div class="row">
-                        <div class="input-field email">
+                        <div class="input-field email"  style="color: white;">
                             <div class="col s12">
                                 <input 
                                 type="text" 
@@ -105,7 +107,7 @@
                         </div>	
                     </div>
                     <div class="row">
-                        <button type="submit" name="btn-signup" class="btn blue right waves-effect waves-light">Sign Up</button>
+                        <button type="submit" name="btn-signup" class="btn orange right waves-effect waves-light">Sign Up</button>
                     </div>
                 </form>
                 </div>

@@ -6,9 +6,6 @@ const session = require('express-session')
 const passport = require('passport')
 
 
-
-
-
 const db = require("./models");
 
 const app = express();
@@ -46,8 +43,8 @@ app.use((req,res,next) => {
 
 // Routes
 
-app.use('/', require("./routes/htmlRoutes"));
 app.use('/users', require("./routes/authRoutes"));
+app.use('/', require("./routes/htmlRoutes"));
 
 var syncOptions = { force: false };
 

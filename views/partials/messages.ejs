@@ -1,17 +1,28 @@
-<% if(typeof errors != 'undefined') { %>
-    <% errors.forEach(function(error) { %>
-        <%= error.msg %>
-    <% }); %>
+
+
+<% if(typeof errors != 'undefined'){ %> 
+<% errors.forEach(function(error) { %>
+<div class="alert fa fa-times-circle">
+  <%= error.msg %>
+</div>
+<% }); %> 
+<% } %> 
+
+<% if(success_msg != ''){ %>
+<div class="alert fa fa-times-circle">
+  <%= success_msg %>
+  </div>
 <% } %>
 
 
+ <% if(error_msg != ''){ %>
+ <div class="alert fa fa-times-circle">
+  <%= error_msg %>
+  </div>
+<% } %> 
 
-<% if(success_msg != '') { %>
-    <%= success_msg %>
-<% } %>
-<% if(error_msg != '') { %>
-    <%= error_msg %>
-<% } %>
-<% if(error != '') { %>
-    <%= error %>
+<% if(error != ''){ %>
+<div class="alert fa fa-times-circle">
+  <%= error %>
+</div>
 <% } %>
