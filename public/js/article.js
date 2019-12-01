@@ -1,16 +1,38 @@
+console.log("isLoaded");
 
-$("#register").on("click", function(event){
 
-event.preventDefault();
+$("#newComment").on("click", function (event) {
 
-var newUser = {
-    userName: $("#userName").val().trim(),
-    email: $("#email").val().trim(),
-    password: $("#password").val().trim(),
+    event.preventDefault();
+    
+
+console.log("pressed");
+
+
+  //  console.log($('form').serializeArray());
+    
+    $.ajax({
+        method: "POST",
+        url: "/api/comments/" + 12,
+        data: {
+            title: title,
+            body: body,
+            author: author
+        }
+    })
+        .then(function () {
+            console.log("sentreqest");
+            window.location.href = "/";
+        });
+
+});
+
+function handleClick(params) {
+    console.log("pressed");
+
 }
-console.log(newUser)
 
-$.post("/register", newUser).then(function(data){
-    console.log(data)
-})
-})
+
+function handleIt() {
+    alert("hello");
+  }
