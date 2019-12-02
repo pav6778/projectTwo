@@ -4,13 +4,14 @@
 <html lang="en">
 
 <head>
-    <% include ../partials/head %>
+    <%- include ../partials/head %>
+
 </head>
 
 <body class="container">
 
     <header>
-        <% include ../partials/header %>
+        <%- include ../partials/header %>
     </header>
     <%if (userName != null) { %>
     <a href="/write">
@@ -27,18 +28,12 @@
                 <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__media mdl-color-text--grey-50">
 
-
                         <% if(userName === null){ %>
                         <h3><a>Welcome to your blog!</a></h3>
                         <% } %>
-
-
                         <% if(userName != null){ %>
-
-
                         <h3><a>Hello, <%-  userName  %></a></h3>
                         <% } %>
-
 
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
@@ -47,17 +42,13 @@
                         <div>
                             <strong>The Newist</strong>
                             <span>13 users active</span>
-                            
-                   
                         </div>
-                       
                     </div>
                     
                   
                 </div>
                 <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
                    
-
                     <!-- Sign in segment -->
                     <% if(userName === null){ %>
                         <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
@@ -69,14 +60,14 @@
 
                         <div class="mdl-grid">
                             <div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
-                                <form action="#">
+                                <form action="/login" method="post">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="username" />
+                                        <input class="mdl-textfield__input" type="text" name="email" />
                                         <label class="mdl-textfield__label" for="username">Username</label>
 
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="username" />
+                                        <input class="mdl-textfield__input" type="password" name="password"  />
                                         <label class="mdl-textfield__label" for="password">Password</label>
 
                                     </div>
@@ -94,6 +85,7 @@
                             </div>
                         </div>
 
+
                     </div>
                     <% } %>
                     <% if(userName != null){ %>
@@ -107,10 +99,12 @@
                                 <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                                     <div>
                                             <% if(userName != null){ %>
-
-                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                                        Sign Out
-                                                      </button>
+<form action="/logout">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Sign Out
+      </button>
+</form>
+                                                
                                                 <% } %>
                                     </div>
                                     
@@ -122,22 +116,22 @@
                         <div class="mdl-dialog__content">
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-cell--10-col mdl-cell--10-col-tablet">
-                                    <form action="#">
+                                    <form action="/register" method="post">
                                         <h4 class="mdl-color-text--black-600">Register</h4>
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="username" />
+                                            <input class="mdl-textfield__input" type="text" name="userName" />
                                             <label class="mdl-textfield__label" for="username">Username</label>
 
                                         </div>
 
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="email" />
+                                            <input class="mdl-textfield__input" type="text"  name="email" />
                                             <label class="mdl-textfield__label" for="email">Email</label>
 
                                         </div>
 
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="password" />
+                                            <input class="mdl-textfield__input" type="text" name="password" />
                                             <label class="mdl-textfield__label" for="password">Password</label>
 
                                         </div>
@@ -172,7 +166,7 @@
                     </script>
 
 
-<div id="rwFlag" data-user="<%=userName%>"></div>
+                    <div id="rwFlag" data-user="<%=userName%>"></div>
 
                     <!-- <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
                         <div>
@@ -214,9 +208,11 @@
         </main>
         <!-- <div class="mdl-layout__obfuscator"></div> -->
     </div>
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="./js/index.js" type="text/javascript"></script>
 
 
 </body>
