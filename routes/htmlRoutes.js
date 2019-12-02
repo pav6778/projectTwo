@@ -5,7 +5,9 @@ module.exports = function (app) {
     // index page 
     app.get('/', function (req, res) {
 
-        db.Article.findAll({}).then(function (blogDB) {
+        db.Article.findAll({
+
+        }).then(function (blogDB) {
 
             articles = blogDB.map(blogDB => blogDB.dataValues);
             // userName = "bongoCat" ;
