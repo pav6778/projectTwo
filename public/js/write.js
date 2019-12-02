@@ -26,7 +26,7 @@ $("#article-button").on("click", function (event) {
             data: {
                 title: title,
                 body: body,
-                author: $("#rwFlag").attr("data-user").trim()
+                author: $("#rwFlag").attr("data-user").trim();
             }
         })
             .then(function () {
