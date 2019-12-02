@@ -4,13 +4,14 @@
 <html lang="en">
 
 <head>
-    <% include ../partials/head %>
+    <%- include ../partials/head %>
+
 </head>
 
 <body class="container">
 
     <header>
-        <% include ../partials/header %>
+        <%- include ../partials/header %>
     </header>
     <%if (userName != null) { %>
     <a href="/write">
@@ -27,18 +28,12 @@
                 <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
                     <div class="mdl-card__media mdl-color-text--grey-50">
 
-
                         <% if(userName === null){ %>
                         <h3><a>Welcome to your blog!</a></h3>
                         <% } %>
-
-
                         <% if(userName != null){ %>
-
-
                         <h3><a>Hello, <%-  userName  %></a></h3>
                         <% } %>
-
 
                     </div>
                     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
@@ -47,17 +42,13 @@
                         <div>
                             <strong>The Newist</strong>
                             <span>13 users active</span>
-                            
-                   
                         </div>
-                       
                     </div>
                     
                   
                 </div>
                 <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
                    
-
                     <!-- Sign in segment -->
                     <% if(userName === null){ %>
                         <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">

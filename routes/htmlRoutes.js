@@ -9,12 +9,12 @@ module.exports = function (app) {
 
             articles = blogDB.map(blogDB => blogDB.dataValues);
             // userName = "bongoCat" ;
-            userName = null ;
+            // req.user.userName = "bongoCat";
+            
+          (typeof(req.user) != "undefined") ? userName = req.user.userName : userName = null;
 
             res.render('pages/index', { userName,  id: 0,  articles: articles });
         });
-
-
     });
 
 
@@ -36,11 +36,9 @@ module.exports = function (app) {
             }
         }).then(function (blogDB) {
             console.log(blogDB[0].dataValues);
-
+            (typeof(req.user) != "undefined") ? userName = req.user.userName : userName = null;
             res.render('pages/write', { userName, edit: true, id: req.params.id, articles: blogDB[0].dataValues });
-
         });
-
     });
 
     // about page 
@@ -55,11 +53,9 @@ module.exports = function (app) {
             }
         }).then(function (blogDB) {
             console.log(blogDB[0]);
-
+            (typeof(req.user) != "undefined") ? userName = req.user.userName : userName = null;
             res.render('pages/article', { userName,  id:req.params.id, articles: blogDB[0] });
-
         });
-
     });
 
     // about page 
@@ -75,13 +71,11 @@ module.exports = function (app) {
             }
         }).then(function (blogDB) {
             console.log(blogDB[0].dataValues);
-
+            (typeof(req.user) != "undefined") ? userName = req.user.userName : userName = null;
             res.render('pages/article', { userName, id:req.params.id,  articles: blogDB[0].dataValues });
 
         });
     });
-
-
 
     // about page 
     app.get('/featured', function (req, res) {
