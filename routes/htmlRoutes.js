@@ -8,8 +8,8 @@ module.exports = function (app) {
         db.Article.findAll({}).then(function (blogDB) {
 
             articles = blogDB.map(blogDB => blogDB.dataValues);
-            userName = "bongoCat" ;
-            // userName = null ;
+            // userName = "bongoCat" ;
+            userName = null ;
 
             res.render('pages/index', { userName,  id: 0,  articles: articles });
         });
