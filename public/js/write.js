@@ -15,8 +15,6 @@ $("#article-button").on("click", function (event) {
     console.log(title);
     console.log(body);
 
-    let author = "dog";
-
     console.log($("#rwFlag").attr("data-val").trim());
 
     if (!$("#rwFlag").attr("data-val").trim()) {
@@ -28,7 +26,7 @@ $("#article-button").on("click", function (event) {
             data: {
                 title: title,
                 body: body,
-                author: author
+                author: $("#rwFlag").attr("data-user").trim()
             }
         })
             .then(function () {
@@ -45,7 +43,7 @@ $("#article-button").on("click", function (event) {
             data: {
                 title: title,
                 body: body,
-                author: author
+                author: $("#rwFlag").attr("data-user").trim()
             }
         })
             .then(function () {

@@ -11,7 +11,7 @@ module.exports = function (app) {
             userName = "bongoCat" ;
             // userName = null ;
 
-            res.render('pages/index', { userName,  articles: articles });
+            res.render('pages/index', { userName,  id: 0,  articles: articles });
         });
 
 
@@ -20,14 +20,16 @@ module.exports = function (app) {
 
     // about page 
     app.get('/write', function (req, res) {
-
-        res.render('pages/write',{edit: false, id: {}, articles: {}});
+        userName = "bongoCat" ;
+        // userName = null ;
+        res.render('pages/write',{  userName,edit: false, id: 0, articles: {}});
     });
 
 
     // about page 
     app.get('/write/:id', function (req, res) {
-
+        userName = "bongoCat" ;
+        // userName = null ;
         db.Article.findAll({
             where: {
                 id: req.params.id
@@ -35,7 +37,7 @@ module.exports = function (app) {
         }).then(function (blogDB) {
             console.log(blogDB[0].dataValues);
 
-            res.render('pages/write', { edit: true, id: req.params.id, articles: blogDB[0].dataValues });
+            res.render('pages/write', { userName, edit: true, id: req.params.id, articles: blogDB[0].dataValues });
 
         });
 
@@ -43,7 +45,8 @@ module.exports = function (app) {
 
     // about page 
     app.get('/article/:id', function (req, res) {
-
+        userName = "bongoCat" ;
+        // userName = null ;
         console.log(req.params.id);
 
         db.Article.findAll({
@@ -53,7 +56,7 @@ module.exports = function (app) {
         }).then(function (blogDB) {
             console.log(blogDB[0]);
 
-            res.render('pages/article', { articles: blogDB[0] });
+            res.render('pages/article', { userName,  id:req.params.id, articles: blogDB[0] });
 
         });
 
@@ -61,6 +64,9 @@ module.exports = function (app) {
 
     // about page 
     app.put('/article/:id', function (req, res) {
+
+        userName = "bongoCat" ;
+        // userName = null ;
         console.log(req.params.id);
 
         db.Article.findAll({
@@ -70,7 +76,7 @@ module.exports = function (app) {
         }).then(function (blogDB) {
             console.log(blogDB[0].dataValues);
 
-            res.render('pages/article', { articles: blogDB[0].dataValues });
+            res.render('pages/article', { userName, id:req.params.id,  articles: blogDB[0].dataValues });
 
         });
     });
