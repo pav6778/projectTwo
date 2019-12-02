@@ -42,9 +42,9 @@ app.use((req,res,next) => {
 })
 
 // Routes
-
-app.use('/users', require("./routes/authRoutes"));
-app.use('/', require("./routes/htmlRoutes"));
+require('./routes/apiRoutes')(app);
+require('./routes/authRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 var syncOptions = { force: false };
 

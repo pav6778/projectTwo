@@ -1,12 +1,12 @@
-<div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
+<div id = "<%=  articles.id  %>" class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
 
     <div class="mdl-card__media mdl-color-text--grey-50">
 
-        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 130px;right: 28px;">
+        <button data= "<%=  articles.id  %>" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent edit-button" style=" position: absolute;top: 130px;right: 28px;">
                 <i class="material-icons mdl-color-text--white" role="presentation">edit</i>
                 <span class="visuallyhidden">edit</span>
               </button>
-        <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" style=" position: absolute;top: 130px;right: 100px;">
+        <button data = "<%=  articles.id  %>" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent delete-button" style=" position: absolute;top: 130px;right: 100px;">
                     <i class="material-icons mdl-color-text--white" role="presentation">delete</i>
                     <span class="visuallyhidden">delete</span>
                   </button>
@@ -21,13 +21,12 @@
 
     </div>
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-        <%=  articles.body  %>
+        <%=  articles.body.replace(/<[^>]+>/g, '').slice(0, 400)  %>
     </div>
     <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
         <div>
-            <strong>created at: <span> <%=  articles.date  %></span></strong>
+            <strong><span> <%=  articles.createdAt  %></span></strong>
         </div>
-
 
         <i class="material-icons mdl-color-text--white" role="presentation">edit</i>
         <span class="visuallyhidden">edit</span>

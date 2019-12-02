@@ -1,51 +1,32 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>bBlog</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-<title>bBlog</title>
+<!-- views/pages/index.ejs -->
 
-<!-- Add to homescreen for Chrome on Android -->
-<meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" sizes="192x192" href="images/android-desktop.png">
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- Add to homescreen for Safari on iOS -->
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Material Design Lite">
-<link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+<head>
+    <% include ../partials/head %>
 
-<!-- Tile icon for Win8 (144x144 + tile color) -->
-<meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-<meta name="msapplication-TileColor" content="#3372DF">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+</head>
 
-<link rel="shortcut icon" href="images/favicon.png">
+<body class="container">
 
-<!-- include libraries(jQuery, bootstrap) -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <header>
+        <% include ../partials/header %>
+    </header>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-red.min.css" />
-<link rel="stylesheet" href="/styles.css">
-
+    <main>
         <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
             <main class="mdl-layout__content">
                 <div class="demo-back">
-                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="/index" title="go back" role="button">
+                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" href="/" title="go back"
+                        role="button">
                         <i class="material-icons" role="presentation">arrow_back</i>
                     </a>
                 </div>
                 <div class="demo-blog__posts mdl-grid">
                     <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-                        <!-- <div class="mdl-card__media mdl-color-text--black">
-
-                        </div> -->
-
                         <div class="mdl-color-text--grey-300 mdl-card__supporting-text meta">
                             <h3 class="mdl-color-text--black">Create your post...</h3>
                         </div>
@@ -55,65 +36,57 @@
                                 <div class="mdl-cell mdl-cell--6-col">
                                     <form action="#">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input mdl-color-text--black" type="text" id="sample3">
-                                            <label class="mdl-textfield__label mdl-color-text--gray" for="sample3">Insert Title...</label>
+                                            <input id="article-title" class="mdl-textfield__input mdl-color-text--black"
+                                                type="text" id="sample3" value="<%- articles.title  %>">
+                                            <label class="mdl-textfield__label mdl-color-text--gray"
+                                                for="sample3">Insert Title...</label>
                                         </div>
-                                    </form>
-
-
                                 </div>
                                 <div class="mdl-cell mdl-cell--3-col"></div>
                                 <div class="mdl-cell mdl-cell--3-col">
-                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                                      <i class="material-icons">add</i>
-                                    </button>
-
-                                </div>
+                                    <button id="article-button"
+                                        class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                                        <i class="material-icons">add</i>
+                                    </button></div>
                                 <div class="mdl-cell mdl-cell--11-col">
                                     <div id="summernote">
-
+                                        <%- articles.body || '' %>
                                     </div>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#summernote').summernote({
-                                                height: 200
-                                            });
-                                        });
-                                    </script>
                                 </div>
-
-
-
                             </div>
-
-
-
                         </div>
-
                     </div>
-
-
                 </div>
-                <footer class="mdl-mini-footer">
-                    <div class="mdl-mini-footer--left-section">
+                </form>
+                <div id="rwFlag" data-user="<%=userName || null%>" data-reference="<%=id || ''%>" data-val=" <%- edit  || '' %>"></div>
+                <!--    <footer class="mdl-mini-footer">
+                     <div class="mdl-mini-footer--left-section">
                         <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
-                        <span class="visuallyhidden">Twitter</span>
-                      </button>
+                            <span class="visuallyhidden">Twitter</span>
+                        </button>
                         <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
-                        <span class="visuallyhidden">Facebook</span>
-                      </button>
+                            <span class="visuallyhidden">Facebook</span>
+                        </button>
                         <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
-                        <span class="visuallyhidden">Google Plus</span>
-                      </button>
-                    </div>
-                    <div class="mdl-mini-footer--right-section">
+                            <span class="visuallyhidden">Google Plus</span>
+                        </button>
+                    </div> -->
+                <!-- <div class="mdl-mini-footer--right-section">
                         <button class="mdl-mini-footer--social-btn social-btn__share">
-                        <i class="material-icons" role="presentation">share</i>
-                        <span class="visuallyhidden">share</span>
-                      </button>
-                    </div>
-                </footer>
+                            <i class="material-icons" role="presentation">share</i>
+                            <span class="visuallyhidden">share</span>
+                        </button>
+                    </div> 
+                </footer> -->
             </main>
             <div class="mdl-layout__obfuscator"></div>
         </div>
         <script src="$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
+    </main>
+
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="/js/write.js"></script>
+
+</body>
+
+</html>

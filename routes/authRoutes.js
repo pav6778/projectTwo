@@ -1,17 +1,15 @@
 const db = require("../models");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
-const router = require("express").Router();
 
-router.get("/login", function(req, res) { 
-  res.render("login");
+module.exports = function(app) {
+
+app.get("/login", function(req, res) { 
+  res.render("pages/index");
 });
 
-router.get("/register", function(req, res) {
-  res.render("register");
-});
 
-router.post("/register", function(req, res) {
+app.post("/register", function(req, res) {
   const { userName, email, password } = req.body;
   
   bcrypt.genSalt(10, (err, salt) => {
@@ -29,7 +27,7 @@ router.post("/register", function(req, res) {
     errors.push({ msg: "Password should be at least 6 characters" });
   }
   if (errors.length > 0) {
-    res.render("register", {
+    res.render("/pages/index", {
       errors,
       userName,
       email,
@@ -45,7 +43,7 @@ router.post("/register", function(req, res) {
         errors.push({
           msg: "Email is already registered"
         });
-        res.render("register", {
+        res.render("pages/index", {
           errors,
           userName,
           email,
@@ -57,8 +55,8 @@ router.post("/register", function(req, res) {
           email: req.body.email,
           password: req.body.password
         }).then(userdb => {
-          req.flash("success_msg", "grats! you registered!");
-          res.redirect("/users/login");
+          req.flash("success_msg", "You are now registered. Log in below.");
+          res.redirect("/pages/index");
         });
       }
     });
@@ -66,19 +64,20 @@ router.post("/register", function(req, res) {
 });
 //Login Handle
 
-router.post("/login", (req, res, next) => {
+app.post("/login", (req, res, next) => {
+  console.log(req.body)
   passport.authenticate("local", {
-    successRedirect: "/index",
-    failureRedirect: "/users/login",
+    successRedirect: "/",
+    failureRedirect: "/",
     failureFlash: true
   })(req, res, next);
 });
 
-router.get('/logout', (req, res) => {
+app.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
   res.redirect('/');
 });
 
-module.exports = router
 
+}
